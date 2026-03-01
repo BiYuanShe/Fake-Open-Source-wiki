@@ -30,7 +30,7 @@ body:
   - type: input
     id: start_time
     attributes:
-      label: 发生时间 / Start Date/Time
+      label: 发生时间 / Start Time
       description: 事件开始的具体时间 / The specific date and time when the event started
       placeholder: "例如：2024-01-15 或 2024年1月15日 / Example: 2024-01-15 or January 15, 2024"
     validations:
@@ -39,7 +39,7 @@ body:
   - type: input
     id: end_time
     attributes:
-      label: 结束时间 / End Date/Time
+      label: 结束时间 / End Time
       description: 事件结束的具体时间（如果事件已结束） / The specific date and time when the event ended (if applicable)
       placeholder: "例如：2024-01-20 或 2024年1月20日 / Example: 2024-01-20 or January 20, 2024"
 
@@ -48,17 +48,17 @@ body:
     attributes:
       label: 发生地点 / Location
       description: 线下地址、线上网址、某群聊名称等 / Offline address, online URL, chat group name, etc.
-      placeholder: "例如：某GitHub项目 | https://example.com | 某微信群 | 某Discord服务器 / Example: XYZ GitHub Project | https://example.com | WeChat Group XYZ | Discord Server XYZ"
+      placeholder: "例如：某 GitHub 项目 | https://example.com | 某微信群 | 某 Discord 服务器 / Example: XYZ GitHub Project | https://example.com | WeChat Group XYZ | Discord Server XYZ"
     validations:
       required: true
 
   - type: textarea
-    id: involved_people
+    id: hypocrite
     attributes:
-      label: 涉及人员 / Involved People
+      label: 伪开源人 / Hypocrite
       description: 列出 @GitHub 账号、社交媒体个人主页网址、网名、姓名等 / List @GitHub accounts, social media profile links, usernames, names, etc.
       placeholder: |
-        - @GitHub账号 或 GitHub个人主页 / @GitHub username or GitHub profile link
+        - @GitHub 账号 或 GitHub 个人主页 / @GitHub username or GitHub profile link
         - 社交媒体账号或个人主页链接 / Social media account or personal profile link
         - 网名、姓名 / Username, name
         例如：
@@ -89,7 +89,7 @@ body:
   - type: input
     id: money
     attributes:
-      label: 涉及资金 / Currency and Amount
+      label: 涉及资金 / Currency & Amount
       description: 请直接填写类似“CNY ￥100”或“USD $200”的格式，用币种缩写+符号+数值 / Please enter in a format such as "CNY ￥100" or "USD $200", using currency abbreviation + symbol + value
       placeholder: "例如：CNY ￥100 或 USD $200 / Example: CNY ￥100 or USD $200"
 

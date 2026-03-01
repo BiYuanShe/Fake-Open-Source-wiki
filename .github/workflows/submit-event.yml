@@ -22,14 +22,15 @@ jobs:
       - name: Add data to YAML
         run: |
           cat << EOF >> data/events.yml
-          - title: "${{ github.event.issue.title }}"
+          - issue_link: "${{ github.event.issue.html_url }}"
+            title: "${{ github.event.issue.title }}"
             tags: "${{ steps.issue-parser.outputs.issueparser_tags }}"
             start_time: "${{ steps.issue-parser.outputs.issueparser_start_time }}"
             end_time: "${{ steps.issue-parser.outputs.issueparser_end_time }}"
             location: "${{ steps.issue-parser.outputs.issueparser_location }}"
             whistleblower: "${{ github.event.issue.user.html_url }}"
-            involved_people: |
-              ${{ steps.issue-parser.outputs.issueparser_involved_people }}
+            hypocrite: |
+              ${{ steps.issue-parser.outputs.issueparser_hypocrite }}
             event_details: |
               ${{ steps.issue-parser.outputs.issueparser_event_details }}
             money: "${{ steps.issue-parser.outputs.issueparser_money }}"
