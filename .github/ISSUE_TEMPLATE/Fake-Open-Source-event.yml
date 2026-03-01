@@ -8,15 +8,11 @@ body:
   - type: markdown
     attributes:
       value: |
-        ## 重要声明
+        ## 免责声明 / Disclaimer
 
-        - **隐私政策**：施害过程中施害人暴露的个人信息不属于隐私，除此之外所有人均应受隐私保护
-        - **信息来源**：本平台仅提供基于 Git 的分布式信息存储，信息真实性由发布者负责，并由网友辨别、辟谣
+        - **隐私政策 / Privacy Policy**：施害过程中施害人暴露的个人信息不属于隐私，除此之外所有人均应受隐私保护。/ Personal information exposed by the perpetrator during the harmful process is not protected by privacy laws. Beyond that, all individuals should be protected by privacy rights.
 
-        ## Important Statements
-
-        - **Privacy Policy**: Personal information exposed by the perpetrator during the harmful process is not protected by privacy laws. Beyond that, all individuals should be protected by privacy rights.
-        - **Information Source**: This platform only provides decentralized information storage based on Git. The authenticity of information is the responsibility of the publisher, and is to be verified and fact-checked by the community.
+        - **信息来源 / Information Source**：本平台仅提供基于 Git 的分布式信息存储，信息真实性由发布者负责，并由网友辨别、辟谣。/ This platform only provides decentralized information storage based on Git. The authenticity of information is the responsibility of the publisher, and is to be verified and fact-checked by the community.
 
   - type: input
     id: tags

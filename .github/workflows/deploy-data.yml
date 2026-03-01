@@ -12,7 +12,20 @@ jobs:
       - uses: actions/setup-node@v6
 
       - name: YAML to JSON
-        run: find data/ -type f | grep -Ei .+\\.yml | sed -E 's/(.+)\\.yml/\\1/' | xargs -I {} npx yaml-convert -j {}.yml -o {}.json
+        run: |
+          find data/ -type f | grep -Ei .+\\.yml | sed -E 's/(.+)\\.yml/\\1/' | xargs -I {} npx yaml-convert -j {}.yml -o {}.json
+
+          cp README.md data/
+          cd data/
+
+          echo "## 数据接口 / Data Interface" >> README.md
+          echo "" >> README.md
+          echo $(
+            ls -1 *.yml 2>/dev/null | \
+            sed 's/\.yml$//' | nl | \
+            sed 's/^[[:space:]]*\([0-9]*\)[[:space:]]*\(.*\)$/\1. [\2](https:\/\/biyuanshe.github.io\/Fake-Open-Source-wiki\/\2.json)/'
+          ) >> README.md
+          cd -
 
       - name: Deploy to GitHub pages
         uses: peaceiris/actions-gh-pages@v4
