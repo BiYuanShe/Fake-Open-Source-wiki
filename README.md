@@ -14,6 +14,12 @@
 
 - **信息来源 / Information Source**：本平台仅提供基于 Git 的分布式信息存储，信息真实性由发布者负责，并由网友辨别、辟谣。/ This platform only provides decentralized information storage based on Git. The authenticity of information is the responsibility of the publisher, and is to be verified and fact-checked by the community.
 
-[1]: https://github.com/BiYuanShe/Fake-Open-Source-wiki/issues/new?&template=submit-event.yml&labels=event,documentation
+## 灵感来源 / Inspiration
+
+- [FFmpeg shame](https://ffmpeg.org/shame.html)
+- [996.icu](https://996.icu/)
+- [Hax vs 360](https://github.com/hax/heshijun_v_360)
+
+[1]: https://github.com/BiYuanShe/Fake-Open-Source-wiki/issues/new?template=Fake-Open-Source-event.yml
 [2]: https://github.com/BiYuanShe/Fake-Open-Source-wiki/pulls
 [3]: https://biyuanshe.github.io/Fake-Open-Source-wiki/
