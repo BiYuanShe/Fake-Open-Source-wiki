@@ -96,7 +96,7 @@ body:
   - type: textarea
     id: assets
     attributes:
-      label: 涉及财物 / Involved Assets 
+      label: 涉及财物 / Involved Assets
       description: 用 Markdown 4 级及以上标题、项目列表等语法罗列，可贴网址、截图等证据 / Use Markdown level 4+ headings, bullet lists, etc. to describe. Include URLs, screenshots, and evidence
       placeholder: |
         请使用 Markdown 格式（4 级及以上标题、项目列表等语法）详细描述，可贴网址、截图等证据 / Please use Markdown format (level 4+ headings, bullet lists, etc.) to describe in detail. Include URLs, screenshots, and other evidence.
