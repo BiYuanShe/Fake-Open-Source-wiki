@@ -19,10 +19,38 @@ jobs:
         with:
           template-path: ".github/ISSUE_TEMPLATE/Fake-Open-Source-event.yml"
 
-      - name: Add data to YAML
+      - name: Save issue to Markdown & YAML
         run: |
+          START_TIME="${{ steps.issue-parser.outputs.issueparser_start_time }}"
+          DATE_PART=$(echo "$START_TIME" | grep -oE '[0-9]{4}[-/][0-9]{2}[-/][0-9]{2}' | head -n1 | tr '/' '-')
+
+          if [ -z "$DATE_PART" ]; then
+            echo "Unable to parse start_time: $START_TIME"
+            exit 1
+          fi
+
+          IFS='-' read -r YEAR MONTH DAY <<< "$DATE_PART"
+
+          SAFE_TITLE=$(echo "${{ github.event.issue.title }}" | \
+            sed 's#[\\/:*?"<>|]#-#g; s/[[:space:]]\+/-/g; s/--\+/-/g; s/^-//; s/-$//')
+
+          if [ -z "$SAFE_TITLE" ]; then
+            SAFE_TITLE="issue-${{ github.event.issue.number }}"
+          fi
+
+          FILE_PATH="data/$YEAR/$MONTH/$DAY/$SAFE_TITLE.md"
+          mkdir -p "$(dirname "$FILE_PATH")"
+
+          ISSUE_TITLE="${{ github.event.issue.title }}"
+          ISSUE_BODY="${{ github.event.issue.body }}"
+          {
+            printf '# %s\n\n' "$ISSUE_TITLE"
+            printf '%s\n' "$ISSUE_BODY"
+          } > "$FILE_PATH"
+
           cat << EOF >> data/events.yml
           - issue_link: "${{ github.event.issue.html_url }}"
+            file_path: "$FILE_PATH"
             title: "${{ github.event.issue.title }}"
             tags: "${{ steps.issue-parser.outputs.issueparser_tags }}"
             start_time: "${{ steps.issue-parser.outputs.issueparser_start_time }}"
@@ -31,11 +59,7 @@ jobs:
             whistleblower: "${{ github.event.issue.user.html_url }}"
             hypocrite: |
               ${{ steps.issue-parser.outputs.issueparser_hypocrite }}
-            event_details: |
-              ${{ steps.issue-parser.outputs.issueparser_event_details }}
             money: "${{ steps.issue-parser.outputs.issueparser_money }}"
-            assets: |
-              ${{ steps.issue-parser.outputs.issueparser_assets }}
           EOF
 
       - uses: peter-evans/create-pull-request@v8
