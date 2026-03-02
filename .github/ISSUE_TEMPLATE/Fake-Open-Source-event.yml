@@ -28,7 +28,7 @@ body:
     attributes:
       label: 发生时间 / Start Time
       description: 事件开始的具体时间 / The specific date and time when the event started
-      placeholder: "例如：2024-01-15 或 2024年1月15日 / Example: 2024-01-15 or January 15, 2024"
+      placeholder: "例如：2024-01-15 / Example: 2024-01-15"
     validations:
       required: true
 
@@ -37,7 +37,7 @@ body:
     attributes:
       label: 结束时间 / End Time
       description: 事件结束的具体时间（如果事件已结束） / The specific date and time when the event ended (if applicable)
-      placeholder: "例如：2024-01-20 或 2024年1月20日 / Example: 2024-01-20 or January 20, 2024"
+      placeholder: "例如：2024-01-20 / Example: 2024-01-20"
 
   - type: input
     id: location
